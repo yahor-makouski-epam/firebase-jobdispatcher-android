@@ -18,6 +18,8 @@ package com.firebase.jobdispatcher;
 
 import android.os.IBinder;
 import android.os.RemoteException;
+import android.util.Log;
+
 import com.google.android.gms.gcm.INetworkTaskCallback;
 
 /**
@@ -35,7 +37,7 @@ import com.google.android.gms.gcm.INetworkTaskCallback;
         try {
             mCallback.taskFinished(status);
         } catch (RemoteException e) {
-            throw new RuntimeException(e);
+            Log.e("GooglePlayJobCallback", "Remote exception when finishing task", e);
         }
     }
 }
